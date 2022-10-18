@@ -12,3 +12,4 @@ if numero == pc :
 else :
     print(emoji.emojize("Sinto muito mas voce errou 🙁 "))
     print("O numero correto era :",pc)
+    
