@@ -1,1 +1,5 @@
-print("\033[m")
+
+
+numero = int(10/10)
+
+print(numero)
