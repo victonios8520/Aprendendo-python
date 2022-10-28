@@ -2,25 +2,25 @@ import os
 
 os.system("clear")
 
-palavra = str(input("Digite a palavra :"))
+palavra = str(input("Digite a palavra :")).strip()
 
 quantidade = len(palavra)
 
-lista = ""
+lista_trocada = ""
+lista_original = ("".join(palavra.split()))
+
+print(lista_original)
 
 for c in range(quantidade-1,-1,-1):
-    if palavra[c] != " " :
-        print("ola dinovo")
-        print(palavra[c])
-        
+    lista_trocada += palavra[c]
 
 
-##os.system("clear")
-print(lista)
-if lista == palavra :
-    print(f"A frase ({lista}) é um palíndromo")
+os.system("clear")
+
+print("".join(lista_trocada.split()) , "e lista :", lista_original)
+
+if "".join(lista_trocada.split())  == lista_original :
+    print("A frase ({}) é um palíndromo".format(" ".join(palavra.split())))
 else :
-    print(f"A frase ({lista}) nao é um palíndromo")
+    print("A frase '{}' nao é um palíndromo".format(" ".join(palavra.split())))
     
-    
-    #programa em fase de confecxao e o exercico 51 nao foi feito ainda
