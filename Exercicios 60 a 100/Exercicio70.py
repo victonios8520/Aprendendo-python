@@ -1,6 +1,5 @@
-nomes = []
-
-preços = []
+import os
+os.system("clear")
 
 total = 0 
 
@@ -10,44 +9,58 @@ contador = barato_preco = 1
 
 barato_nome = ""
 
-print("------------------------------------------------------------------------")
+print("-----------------------------------------------------------------------")
 print("                         Lojas leais                                    ")
-print("------------------------------------------------------------------------")
+print("-----------------------------------------------------------------------")
 
 while True :
     produto = str(input("Digite o noma do produto :"))
     preço_produto = float(input("Digite o preço do produto R$:"))
-    continuar = input("Deseja continuar [s/n] ?").upper()
+    #continuar = input("Deseja continuar [s/n] ?").upper()
     
     total += preço_produto
     
-    if contador == 1 :
+    if contador == 1 or preço_produto < barato_preco :
         barato_nome = produto
         barato_preco = preço_produto
-    else :
-        if preço_produto < barato_preco :
-            barato_nome = preço_produto
-            barato_nome = produto
+        contador += 1
+    #else :
+        #if preço_produto < barato_preco :
+            #barato_nome = produto
+            #barato_preco = preço_produto
+            
 
     
     if preço_produto > 1000:
         maisde8mil += 1
+        
+    resposta = " "
     
-    if continuar == "S" :
-        nomes.append(produto)
-        preços.append(preço_produto)
-        print("------------------------------------------------------------------------")
-    else :
-        nomes.append(produto)
-        preços.append(preço_produto)
-        print("------------------------------------------------------------------------")
-        break
+    while resposta not in "SN" :
+        resposta = str(input("Deseja continuar [S/N] :")).strip().upper()[0]  
+    if resposta == "N" :
+        break 
     
-local = min(preços)
+    print("-----------------------------------------------------------------------")
+
+    
+    #if continuar == "S" :
+        #nomes.append(produto)
+        #preços.append(preço_produto)
+        #print("-----------------------------------------------------------------------")
+    #else :
+        #nomes.append(produto)
+        #preços.append(preço_produto)
+        #print("-----------------------------------------------------------------------")
+        #break
+    
+
+print("-----------------------------------------------------------------------")
+print("                              Preços                                    ")
+print("-----------------------------------------------------------------------")
     
 print(f"""Total da compra foi de R$:{total}
 Temos {maisde8mil} produtos custando acima de R$1000 
 O produto mais barato foi {barato_nome} que custou {barato_preco}""")
-    
-        
-## nao testado ainda
+
+print("{:-^71}".format("FIM DO PROGRAMA"))
